@@ -41,11 +41,23 @@ def compara_imagens(faceId_detectadas):
                 MaxFaces=10,
             )
         )
+    # print(json.dumps(resultado_comparacao, indent=4))
     return resultado_comparacao
+
+
+def gera_dados_json(resultado_comparacao):
+    dados_json = []
+    for face_matches in resultado_comparacao:
+        if(len(face_matches.get('FaceMatches'))) >=1:
+            perfil = dict(nome=face_matches['FaceMatches'][1]['Face']['ExternalImageId'],
+                          faceMatch=round(face_matches['FaceMatches'][1]['Similarity'], 2))
+            dados_json.append(perfil)
+    return dados_json
 
 
 faces_detectadas = detecta_faces()
 faceId_detectadas = cria_lista_faceId_detectadas(faces_detectadas)
 resultado_comparacao = compara_imagens(faceId_detectadas)
+dados_json = gera_dados_json(resultado_comparacao)
 
-print(json.dumps(resultado_comparacao, indent=4))
+print(json.dumps(dados_json, indent=4))
