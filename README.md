@@ -6,15 +6,20 @@ AWS Lambda is a serverless computing service that allows you to run code without
 
 Boto3 makes it easy to integrate your Python application, library or script with AWS services, including Amazon S3, Amazon EC2 and Amazon DynamoDB, among others.
 
-## How Works
+## http://fa-site-lambda-model.s3-website-us-east-1.amazonaws.com/
+
+## How Works BACKEND
 You can put imagens in folder "imagens" and after you need run index.py for making a Rekognition indices...
 
 After you can put a _analise.png photo with a group of people, where having one or more people when exists in folder imagens.
 
 Well for finish you can run faceanalise.py for get a comparison and have answered if have recognition any person in _analise.png
 
+## How Works FRONTEND
+http://fa-site-lambda-model.s3-website-us-east-1.amazonaws.com/
+
 ## Technical explain
-#### looking just about def in python (every answer are in JSON)
+#### looking first in BACKEND folder, and just about def in python (must answer are in JSON)
 - detecta_faces
     
 Here you got answer about a number of faces found
@@ -147,6 +152,11 @@ Return a clean JSON with content saying a persons founds in group from _analise.
     }
 ]
 ```
+
+Well after this part you need create a S3 Bucket from show in FRONTEND this information
+
+
+----------------------------------
 
 ### usually commands
 - to get profiles from aws cli
